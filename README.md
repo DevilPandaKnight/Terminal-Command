@@ -7,7 +7,7 @@ The .c files are the source file, .exe files are executable on windows, files wi
 
 Example:
 
-htd.c is hex to binary source file
+htd.c is hex to decimal source file
 
 htd.is are executable on windows
 
