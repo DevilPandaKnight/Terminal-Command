@@ -199,7 +199,7 @@ void dumpDoc(unsigned char* string, size_t len,int delay){
 void doNoFlag(linklist* l,ArgParser *p){
 	ArgParser parser = *p;
 	char* tempName;
-	if(l==NULL){printf("no input files or path."); exit(0);}
+	if(l==NULL){printf("no input files or path.\n"); exit(0);}
 	for (int j = 0;j<parser.argc;j++) {
 		int index = findStringInList(l, parser.args[j]);
 		while (index != -1) {
@@ -213,7 +213,7 @@ void doNoFlag(linklist* l,ArgParser *p){
 linklist* doInFlag(linklist* l,ArgParser* p){
 	ArgParser parser = *p;
 	char* tempName;
-	if(l==NULL){printf("no input files or path."); exit(0);}
+	if(l==NULL){printf("no input files or path.\n"); exit(0);}
 	linklist* tempList = stringlinklist();
 	for (int j = 0;j<parser.argc;j++) {
 		int index = findStringInList(l, parser.args[j]);
