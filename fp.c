@@ -199,7 +199,7 @@ void dumpDoc(unsigned char* string, size_t len,int delay){
 
 int main(int argc, char *argv[]) {
 	if (argc == 1) {
-		printf("File printing. Made By Jin.\n\t-no     --to exclude the files. Please put the file path before the -no args.\n\t-speed= --to set the printing speed, the default is 20.\n\t-d	--to dump the file in raw format.\n\t-name\t--print all the file names recursively under the folder.\n");
+		printf("File printing. Made By Jin.\n\t-no     --to exclude the files. Please put the file path before the -no args.\n\t-in\t--to only print the files you specified. Please put the file path before the -in args.\n\t-speed= --to set the printing speed, the default is 20.\n\t-d	--to dump the file in raw format.\n\t-name\t--print all the file names recursively under the folder.\n");
 		return 0;
 	}
 	ArgParser parser[argc];
@@ -224,6 +224,26 @@ int main(int argc, char *argv[]) {
 					index = findStringInList(l, parser[i].args[j]);
 				}
 			}
+		}
+		else if (strcmp(parser[i].commnd, "-in")==0) {
+			char* tempName;
+			cRaise(l==NULL, "no input files or path.");
+			linklist* tempList = stringlinklist();
+			for (int j = 0;j<parser[i].argc;j++) {
+				int index = findStringInList(l, parser[i].args[j]);
+				while (index != -1) {
+					popFromListAtIndex(&tempName,index, l);
+					appendToList(&tempName, tempList);
+					index = findStringInList(l, parser[i].args[j]);
+				}
+			}
+			freeList(l);
+			if (tempList->length==0) {
+				printf("no matched files.\n");
+				free(tempList);
+				return 0;
+			}
+			l = tempList;
 		}
 		else if (strcmp(parser[i].commnd, "-d")==0) {
 			dumpFlag = true;
