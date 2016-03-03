@@ -293,25 +293,23 @@ int main(int argc, char *argv[]) {
 			exit(0);
 		}
 	}
-	if (in_no_flag) {
-		switch (in_no_flag) {
-			case 1://only no
-				doNoFlag(l, &parser[in_no_index[0]]);
-				break;
-			case 2://only in
-				l = doInFlag(l, &parser[in_no_index[1]]);
-				break;
-			case 3://no first, in second
-				doNoFlag(l, &parser[in_no_index[0]]);
-				l = doInFlag(l, &parser[in_no_index[1]]);
-				break;
-			case 4://in first, no second
-				l = doInFlag(l, &parser[in_no_index[1]]);
-				doNoFlag(l, &parser[in_no_index[0]]);
-				break;
-			default:
-				break;
-		}
+	switch (in_no_flag) {
+		case 1://only no
+			doNoFlag(l, &parser[in_no_index[0]]);
+			break;
+		case 2://only in
+			l = doInFlag(l, &parser[in_no_index[1]]);
+			break;
+		case 3://no first, in second
+			doNoFlag(l, &parser[in_no_index[0]]);
+			l = doInFlag(l, &parser[in_no_index[1]]);
+			break;
+		case 4://in first, no second
+			l = doInFlag(l, &parser[in_no_index[1]]);
+			doNoFlag(l, &parser[in_no_index[0]]);
+			break;
+		default:
+			break;
 	}
 	
 	
