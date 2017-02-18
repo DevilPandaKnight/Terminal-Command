@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
-#include "../jinUtility/container/stack.h"
+#include "../jinUtility/container/Stack.h"
 #define MAXARG 10
 typedef struct 
 {

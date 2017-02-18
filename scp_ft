@@ -1,4 +1,0 @@
-#! /bin/bash
-
-#scp "$1" xiongfen@lnxsrv07.seas.ucla.edu:~/Desktop
-scp "$1" devil@192.168.2.100:~/Desktop

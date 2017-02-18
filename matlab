@@ -1,3 +1,3 @@
 #! /bin/bash
 #$1 is -nojvm
-/Applications/MATLAB_R2015b.app/bin/matlab -nodisplay -nosplash $1
+/Applications/MATLAB_R2016b.app/bin/matlab -nodisplay -nosplash $1
